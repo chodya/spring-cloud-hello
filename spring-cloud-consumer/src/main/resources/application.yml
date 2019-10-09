@@ -1,0 +1,23 @@
+server:
+  port: 9002
+  servlet:
+    context-path: /spring-cloud-hello/consumer
+
+spring:
+  application:
+    name: hello-consumer
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    # \u5C06\u4E3A\u670D\u52A1\u6CE8\u518C\u5230eureka
+    register-with-eureka: false
+    # \u4ECEEureka\u540C\u6B65\u6240\u6709\u6CE8\u518C\u7684\u670D\u52A1\u6570\u636E
+    fetch-registry: true
+    # Eureka\u670D\u52A1\u5730\u5740
+    service-url:
+      defaultZone: http://localhost:9000/spring-cloud-hello/discovery/eureka/
+
+feign:
+  hystrix:
+    enabled: true
